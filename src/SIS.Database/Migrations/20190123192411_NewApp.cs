@@ -2,28 +2,12 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RedStarter.Database.Migrations
+namespace WorkOut.Database.Migrations
 {
-    public partial class initial : Migration
+    public partial class NewApp : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "ApplicationTableAccess",
-                columns: table => new
-                {
-                    ApplicationEntityId = table.Column<Guid>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    OwnerId = table.Column<int>(nullable: false),
-                    DateCreated = table.Column<DateTimeOffset>(nullable: false),
-                    DateModified = table.Column<DateTimeOffset>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApplicationTableAccess", x => x.ApplicationEntityId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -272,9 +256,6 @@ namespace RedStarter.Database.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "ApplicationTableAccess");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

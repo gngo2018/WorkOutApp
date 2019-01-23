@@ -1,4 +1,4 @@
-namespace RedStarter.API.DataContract.Authorization
+namespace WorkOut.API.DataContract.Authorization
 {
     public class LoginUserRequest
     {

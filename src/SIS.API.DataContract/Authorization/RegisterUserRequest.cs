@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RedStarter.API.DataContract.Authorization
+namespace WorkOut.API.DataContract.Authorization
 {
     public class RegisterUserRequest
     {

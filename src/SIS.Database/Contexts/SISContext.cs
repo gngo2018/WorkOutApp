@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RedStarter.Database.Entities.Application;
-using RedStarter.Database.Entities.People;
-using RedStarter.Database.Entities.Roles;
+using WorkOut.Database.Entities.Application;
+using WorkOut.Database.Entities.People;
+using WorkOut.Database.Entities.Roles;
 
-namespace RedStarter.Database.Contexts
+namespace WorkOut.Database.Contexts
 {
     public class SISContext : IdentityDbContext
         <UserEntity, 
@@ -22,7 +22,6 @@ namespace RedStarter.Database.Contexts
 
 
         public DbSet<UserEntity> UserTableAccess { get; set; }
-        public DbSet<ApplicationEntity> ApplicationTableAccess { get; set; }
         public DbSet<ContactEntity> ContactTableAccess { get; set; }
         public DbSet<DemographicEntity> DemographicTableAccess { get; set; }
         public DbSet<EducationEntity> EducationTableAccess { get; set; }

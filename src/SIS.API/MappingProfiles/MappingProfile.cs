@@ -1,10 +1,10 @@
 using AutoMapper;
-using RedStarter.API.DataContract.Authorization;
-using RedStarter.Business.DataContract.Authorization.DTOs;
-using RedStarter.Database.DataContract.Authorization.RAOs;
-using RedStarter.Database.Entities.People;
+using WorkOut.API.DataContract.Authorization;
+using WorkOut.Business.DataContract.Authorization.DTOs;
+using WorkOut.Database.DataContract.Authorization.RAOs;
+using WorkOut.Database.Entities.People;
 
-namespace RedStarter.API
+namespace WorkOut.API
 {
     public class MappingProfile : Profile
     {

@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RedStarter.Database.Contexts;
+using WorkOut.Database.Contexts;
 
-namespace RedStarter.Database.Migrations
+namespace WorkOut.Database.Migrations
 {
     [DbContext(typeof(SISContext))]
-    [Migration("20181217153941_initial")]
-    partial class initial
+    [Migration("20190123192411_NewApp")]
+    partial class NewApp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,27 +91,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Application.ApplicationEntity", b =>
-                {
-                    b.Property<Guid>("ApplicationEntityId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTimeOffset>("DateCreated");
-
-                    b.Property<DateTimeOffset?>("DateModified");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<int>("OwnerId");
-
-                    b.HasKey("ApplicationEntityId");
-
-                    b.ToTable("ApplicationTableAccess");
-                });
-
-            modelBuilder.Entity("RedStarter.Database.Entities.Application.ContactEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Application.ContactEntity", b =>
                 {
                     b.Property<Guid>("ApplicationEntityId")
                         .ValueGeneratedOnAdd();
@@ -133,7 +113,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("ContactTableAccess");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Application.DemographicEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Application.DemographicEntity", b =>
                 {
                     b.Property<Guid>("ApplicationEntityId")
                         .ValueGeneratedOnAdd();
@@ -149,7 +129,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("DemographicTableAccess");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Application.EducationEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Application.EducationEntity", b =>
                 {
                     b.Property<Guid>("ApplicationEntityId")
                         .ValueGeneratedOnAdd();
@@ -167,7 +147,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("EducationTableAccess");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Application.ExperienceEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Application.ExperienceEntity", b =>
                 {
                     b.Property<Guid>("ApplicationEntityId")
                         .ValueGeneratedOnAdd();
@@ -181,7 +161,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("ExperienceTableAccess");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.People.UserEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.People.UserEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -233,7 +213,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Roles.RoleEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Roles.RoleEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -258,7 +238,7 @@ namespace RedStarter.Database.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Roles.UserRoleEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Roles.UserRoleEntity", b =>
                 {
                     b.Property<int>("UserId");
 
@@ -273,7 +253,7 @@ namespace RedStarter.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("RedStarter.Database.Entities.Roles.RoleEntity")
+                    b.HasOne("WorkOut.Database.Entities.Roles.RoleEntity")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -281,7 +261,7 @@ namespace RedStarter.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("RedStarter.Database.Entities.People.UserEntity")
+                    b.HasOne("WorkOut.Database.Entities.People.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -289,7 +269,7 @@ namespace RedStarter.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("RedStarter.Database.Entities.People.UserEntity")
+                    b.HasOne("WorkOut.Database.Entities.People.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -297,20 +277,20 @@ namespace RedStarter.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("RedStarter.Database.Entities.People.UserEntity")
+                    b.HasOne("WorkOut.Database.Entities.People.UserEntity")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("RedStarter.Database.Entities.Roles.UserRoleEntity", b =>
+            modelBuilder.Entity("WorkOut.Database.Entities.Roles.UserRoleEntity", b =>
                 {
-                    b.HasOne("RedStarter.Database.Entities.Roles.RoleEntity", "Role")
+                    b.HasOne("WorkOut.Database.Entities.Roles.RoleEntity", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RedStarter.Database.Entities.People.UserEntity", "User")
+                    b.HasOne("WorkOut.Database.Entities.People.UserEntity", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

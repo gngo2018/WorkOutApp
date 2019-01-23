@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RedStarter.Database.Entities.Roles
+namespace WorkOut.Database.Entities.Roles
 {
     public class RoleEntity : IdentityRole<int>
     {

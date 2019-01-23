@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RedStarter.API.DataContract.SeedData
+namespace WorkOut.API.DataContract.SeedData
 {
     public interface Seeder
     {

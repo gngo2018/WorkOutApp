@@ -13,14 +13,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using RedStarter.API.DataContract.Authorization;
-using RedStarter.Business.DataContract.Authorization;
-using RedStarter.Business.DataContract.Authorization.DTOs;
-using RedStarter.Business.DataContract.Authorization.Interfaces;
-using RedStarter.Database.DataContract.Authorization.RAOs;
-using RedStarter.Database.Entities.People;
+using WorkOut.API.DataContract.Authorization;
+using WorkOut.Business.DataContract.Authorization;
+using WorkOut.Business.DataContract.Authorization.DTOs;
+using WorkOut.Business.DataContract.Authorization.Interfaces;
+using WorkOut.Database.DataContract.Authorization.RAOs;
+using WorkOut.Database.Entities.People;
 
-namespace RedStarter.API.Controllers.Authorization
+namespace WorkOut.API.Controllers.Authorization
 {
     [AllowAnonymous]
     [Route("api/[controller]")]

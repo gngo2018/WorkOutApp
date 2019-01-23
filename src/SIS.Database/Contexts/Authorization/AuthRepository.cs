@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using RedStarter.Database.Contexts;
-using RedStarter.Database.DataContract.Authorization.Interfaces;
-using RedStarter.Database.DataContract.Authorization.RAOs;
-using RedStarter.Database.Entities.People;
+using WorkOut.Database.Contexts;
+using WorkOut.Database.DataContract.Authorization.Interfaces;
+using WorkOut.Database.DataContract.Authorization.RAOs;
+using WorkOut.Database.Entities.People;
 using System;
 using System.Threading.Tasks;
 
-namespace RedStarter.Database.Authorization
+namespace WorkOut.Database.Authorization
 {
     public class AuthRepository : IAuthRepository
     {

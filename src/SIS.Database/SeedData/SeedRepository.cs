@@ -2,11 +2,11 @@
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
-using RedStarter.Database.DataContract.SeedData;
-using RedStarter.Database.Entities.People;
-using RedStarter.Database.Entities.Roles;
+using WorkOut.Database.DataContract.SeedData;
+using WorkOut.Database.Entities.People;
+using WorkOut.Database.Entities.Roles;
 
-namespace RedStarter.Database.SeedData
+namespace WorkOut.Database.SeedData
 {
     public class SeedRepository : ISeedRepository
     {

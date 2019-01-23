@@ -12,26 +12,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using RedStarter.API.MappingProfiles;
-using RedStarter.Business.DataContract.Application.Interfaces;
-using RedStarter.Business.DataContract.Authorization.Interfaces;
-using RedStarter.Business.Managers.Application;
-using RedStarter.Business.Managers.Authorization;
-using RedStarter.Database.Application;
-using RedStarter.Database.Authorization;
-using RedStarter.Database.Contexts;
-using RedStarter.Database.DataContract.Application;
-using RedStarter.Database.DataContract.Authorization.Interfaces;
-using RedStarter.Database.DataContract.Roles.Interfaces;
-using RedStarter.Database.Entities.People;
-using RedStarter.Database.Entities.Roles;
-using RedStarter.Database.Roles;
-using RedStarter.Database.SeedData;
+using WorkOut.Business.DataContract.Authorization.Interfaces;
+using WorkOut.Business.Managers.Authorization;
+using WorkOut.Database.Authorization;
+using WorkOut.Database.Contexts;
+using WorkOut.Database.DataContract.Authorization.Interfaces;
+using WorkOut.Database.DataContract.Roles.Interfaces;
+using WorkOut.Database.Entities.People;
+using WorkOut.Database.Entities.Roles;
+using WorkOut.Database.Roles;
+using WorkOut.Database.SeedData;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Net;
 using System.Text;
 
-namespace RedStarter.API
+namespace WorkOut.API
 {
     public class Startup
     {
@@ -95,7 +90,6 @@ namespace RedStarter.API
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
-                mc.AddProfile(new ApplicationMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -106,8 +100,6 @@ namespace RedStarter.API
             services.AddScoped<IAuthManager, AuthManager>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
-            services.AddScoped<IApplicationRepository, ApplicationRepository>();
-            services.AddScoped<IUserApplicationManager, UserApplicationManager>();
 
 
             //======= Swagger =======

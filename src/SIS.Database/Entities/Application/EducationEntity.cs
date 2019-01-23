@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace RedStarter.Database.Entities.Application
+namespace WorkOut.Database.Entities.Application
 {
     public class EducationEntity
     {

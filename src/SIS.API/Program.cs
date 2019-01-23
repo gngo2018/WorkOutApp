@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace RedStarter.API
+namespace WorkOut.API
 {
     public class Program
     {

@@ -1,10 +1,10 @@
-﻿using RedStarter.Business.DataContract.SeedData;
-using RedStarter.Database.DataContract.SeedData;
+﻿using WorkOut.Business.DataContract.SeedData;
+using WorkOut.Database.DataContract.SeedData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RedStarter.Business.SeedData
+namespace WorkOut.Business.SeedData
 {
     public class SeedDataManager : ISeedDataManager
     {
