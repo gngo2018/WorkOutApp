@@ -23,6 +23,11 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<WorkOutEntity, WorkOutListItemRAO>();
             CreateMap<WorkOutListItemRAO, WorkOutListItemDTO>();
             CreateMap<WorkOutListItemDTO, WorkOutListItemResponse>();
+
+            //Update Mapping
+            CreateMap<WorkOutUpdateRequest, WorkOutUpdateDTO>();
+            CreateMap<WorkOutUpdateDTO, WorkOutUpdateRAO>();
+            CreateMap<WorkOutUpdateRAO, WorkOutEntity>();
         }
         
     }

@@ -47,6 +47,16 @@ namespace WorkOut.Business.Managers.WorkOut
             return dto;
         }
 
+        public async Task<bool> UpdateWorkOut(WorkOutUpdateDTO dto)
+        {
+            var rao = _mapper.Map<WorkOutUpdateRAO>(dto);
+
+            if (await _repository.UpdateWorkOut(rao))
+                return true; 
+
+            throw new Exception();
+        }
+
         public async Task<bool> DeleteWorkOut(int id)
         {
             if (await _repository.DeleteWorkOut(id))

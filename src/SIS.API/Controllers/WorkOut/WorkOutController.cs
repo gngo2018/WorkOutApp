@@ -73,6 +73,22 @@ namespace WorkOut.API.Controllers.WorkOut
         }
 
         //PUT Update Work Out
+        [HttpPut]
+        public async Task<IActionResult> UpdateWorkOut (WorkOutUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = _mapper.Map<WorkOutUpdateDTO>(request);
+
+            if (await _manager.UpdateWorkOut(dto))
+                return StatusCode(202);
+
+            throw new Exception();
+        }
+
 
         //DELETE Work Out Delete
         [HttpDelete("{id}")]
