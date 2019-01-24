@@ -56,5 +56,54 @@ namespace WorkOut.API.Controllers.WorkOut
 
             return Ok(response);
         }
+
+        //GET Work Out By Id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetWorkOutById (int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetWorkOutById(id);
+            var response = _mapper.Map<WorkOutListItemResponse>(dto);
+
+            return Ok(response);
+        }
+
+        //PUT Update Work Out
+        [HttpPut]
+        public async Task<IActionResult> UpdateWorkOut (WorkOutUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = _mapper.Map<WorkOutUpdateDTO>(request);
+
+            if (await _manager.UpdateWorkOut(dto))
+                return StatusCode(202);
+
+            throw new Exception();
+        }
+
+
+        //DELETE Work Out Delete
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteWorkOut(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            if (await _manager.DeleteWorkOut(id))
+                return StatusCode(207);
+
+            throw new Exception();
+        }
+
     }
 }

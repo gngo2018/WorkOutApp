@@ -38,5 +38,30 @@ namespace WorkOut.Business.Managers.WorkOut
 
             return dto;
         }
+
+        public async Task<WorkOutListItemDTO> GetWorkOutById(int id)
+        {
+            var rao = await _repository.GetWorkOutById(id);
+            var dto = _mapper.Map<WorkOutListItemDTO>(rao);
+
+            return dto;
+        }
+
+        public async Task<bool> UpdateWorkOut(WorkOutUpdateDTO dto)
+        {
+            var rao = _mapper.Map<WorkOutUpdateRAO>(dto);
+
+            if (await _repository.UpdateWorkOut(rao))
+                return true; 
+
+            throw new Exception();
+        }
+
+        public async Task<bool> DeleteWorkOut(int id)
+        {
+            if (await _repository.DeleteWorkOut(id))
+                return true;
+            throw new NotImplementedException();
+        }
     }
 }
