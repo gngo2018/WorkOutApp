@@ -9,5 +9,7 @@ namespace WorkOut.Database.DataContract.WorkOut.Interfaces
     public interface IWorkOutRepository
     {
         Task<bool> CreateWorkOut(WorkOutCreateRAO rao);
+        Task<IEnumerable<WorkOutListItemRAO>> GetWorkOuts();
+
     }
 }

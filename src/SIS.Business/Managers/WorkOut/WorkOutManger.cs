@@ -30,5 +30,13 @@ namespace WorkOut.Business.Managers.WorkOut
            
                 throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<WorkOutListItemDTO>> GetWorkOuts()
+        {
+            var rao = await _repository.GetWorkOuts();
+            var dto = _mapper.Map<IEnumerable<WorkOutListItemDTO>>(rao);
+
+            return dto;
+        }
     }
 }

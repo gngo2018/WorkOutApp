@@ -9,5 +9,6 @@ namespace WorkOut.Business.DataContract.WorkOut.Interfacees
     public interface IWorkOutManager
     {
         Task<bool> CreateWorkOut(WorkOutCreateDTO dto);
+        Task<IEnumerable<WorkOutListItemDTO>> GetWorkOuts();
     }
 }

@@ -24,6 +24,7 @@ namespace WorkOut.API.Controllers.WorkOut
             _manager = manager;
         }
 
+        //Create Work Out
         [HttpPost]
         public async Task<IActionResult> PostWorkOut(WorkOutCreateRequest request)
         {
@@ -39,6 +40,21 @@ namespace WorkOut.API.Controllers.WorkOut
                 return StatusCode(201);
 
             throw new Exception();
+        }
+
+        //GET All Work Outs
+        [HttpGet]
+        public async Task<IActionResult> GetWorkOuts()
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetWorkOuts();
+            var response = _mapper.Map<IEnumerable<WorkOutListItemResponse>>(dto);
+
+            return Ok(response);
         }
     }
 }
