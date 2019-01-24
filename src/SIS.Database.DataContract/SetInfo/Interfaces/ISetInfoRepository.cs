@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkOut.Database.DataContract.MealPrep.Interfaces
 {
-    public class IMealPrepRepository
+    public class ISetInfoRepository
     {
     }
 }
