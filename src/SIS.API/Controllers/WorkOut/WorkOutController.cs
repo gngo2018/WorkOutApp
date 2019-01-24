@@ -71,5 +71,23 @@ namespace WorkOut.API.Controllers.WorkOut
 
             return Ok(response);
         }
+
+        //PUT Update Work Out
+
+        //DELETE Work Out Delete
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteWorkOut(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            if (await _manager.DeleteWorkOut(id))
+                return StatusCode(207);
+
+            throw new Exception();
+        }
+
     }
 }

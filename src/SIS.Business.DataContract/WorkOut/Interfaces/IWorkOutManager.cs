@@ -11,5 +11,6 @@ namespace WorkOut.Business.DataContract.WorkOut.Interfacees
         Task<bool> CreateWorkOut(WorkOutCreateDTO dto);
         Task<IEnumerable<WorkOutListItemDTO>> GetWorkOuts();
         Task<WorkOutListItemDTO> GetWorkOutById(int id);
+        Task<bool> DeleteWorkOut(int id);
     }
 }

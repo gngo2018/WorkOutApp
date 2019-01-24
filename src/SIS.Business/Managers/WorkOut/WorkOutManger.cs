@@ -46,5 +46,12 @@ namespace WorkOut.Business.Managers.WorkOut
 
             return dto;
         }
+
+        public async Task<bool> DeleteWorkOut(int id)
+        {
+            if (await _repository.DeleteWorkOut(id))
+                return true;
+            throw new NotImplementedException();
+        }
     }
 }

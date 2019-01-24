@@ -48,5 +48,13 @@ namespace WorkOut.Database.WorkOut
 
             return rao;
         }
+
+        public async Task<bool> DeleteWorkOut(int id)
+        {
+            var query = await _ctx.WorkOutTableAccess.SingleAsync(q => q.WorkOutEntityId == id);
+            _ctx.WorkOutTableAccess.Remove(query);
+
+            return await _ctx.SaveChangesAsync() == 1;
+        }
     }
 }
