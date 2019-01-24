@@ -56,5 +56,20 @@ namespace WorkOut.API.Controllers.WorkOut
 
             return Ok(response);
         }
+
+        //GET Work Out By Id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetWorkOutById (int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetWorkOutById(id);
+            var response = _mapper.Map<WorkOutListItemResponse>(dto);
+
+            return Ok(response);
+        }
     }
 }

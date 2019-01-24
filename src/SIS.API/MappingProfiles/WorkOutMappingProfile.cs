@@ -18,6 +18,11 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<WorkOutCreateRequest, WorkOutCreateDTO>();
             CreateMap<WorkOutCreateDTO, WorkOutCreateRAO>();
             CreateMap<WorkOutCreateRAO, WorkOutEntity>();
+
+            //Read Mapping
+            CreateMap<WorkOutEntity, WorkOutListItemRAO>();
+            CreateMap<WorkOutListItemRAO, WorkOutListItemDTO>();
+            CreateMap<WorkOutListItemDTO, WorkOutListItemResponse>();
         }
         
     }

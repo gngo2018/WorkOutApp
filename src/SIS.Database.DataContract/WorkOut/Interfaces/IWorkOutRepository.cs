@@ -10,6 +10,7 @@ namespace WorkOut.Database.DataContract.WorkOut.Interfaces
     {
         Task<bool> CreateWorkOut(WorkOutCreateRAO rao);
         Task<IEnumerable<WorkOutListItemRAO>> GetWorkOuts();
+        Task<WorkOutListItemRAO> GetWorkOutById(int id);
 
     }
 }

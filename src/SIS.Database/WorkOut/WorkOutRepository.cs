@@ -40,5 +40,13 @@ namespace WorkOut.Database.WorkOut
 
             return rao;
         }
+
+        public async Task<WorkOutListItemRAO> GetWorkOutById(int id)
+        {
+            var query = await _ctx.WorkOutTableAccess.SingleAsync(q => q.WorkOutEntityId == id);
+            var rao = _mapper.Map<WorkOutListItemRAO>(query);
+
+            return rao;
+        }
     }
 }
