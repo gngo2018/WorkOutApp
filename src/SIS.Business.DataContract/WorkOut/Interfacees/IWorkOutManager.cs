@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using WorkOut.Business.DataContract.WorkOut.DTOs;
 
 namespace WorkOut.Business.DataContract.WorkOut.Interfacees
 {
-    public interface IWorkOutInterface
+    public interface IWorkOutManager
     {
+        Task<bool> CreateWorkOut(WorkOutCreateDTO dto);
     }
 }

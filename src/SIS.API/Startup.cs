@@ -25,6 +25,11 @@ using WorkOut.Database.SeedData;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Net;
 using System.Text;
+using WorkOut.Business.DataContract.WorkOut.Interfacees;
+using WorkOut.Business.Managers.WorkOut;
+using WorkOut.Database.DataContract.WorkOut.Interfaces;
+using WorkOut.Database.WorkOut;
+using WorkOut.API.MappingProfiles;
 
 namespace WorkOut.API
 {
@@ -90,6 +95,7 @@ namespace WorkOut.API
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
+                mc.AddProfile(new WorkOutMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -100,6 +106,8 @@ namespace WorkOut.API
             services.AddScoped<IAuthManager, AuthManager>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IWorkOutManager, WorkOutManager>();
+            services.AddScoped<IWorkOutRepository, WorkOutRepository>();
 
 
             //======= Swagger =======

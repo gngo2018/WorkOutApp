@@ -4,7 +4,8 @@ using System.Text;
 
 namespace WorkOut.API.DataContract.WorkOut
 {
-    public class WorkOutRequest
+    public class WorkOutCreateRequest
     {
+        public string ExerciseName { get; set; }
     }
 }

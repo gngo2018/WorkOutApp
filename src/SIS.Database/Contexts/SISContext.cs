@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using WorkOut.Database.Entities.Application;
 using WorkOut.Database.Entities.People;
 using WorkOut.Database.Entities.Roles;
+using WorkOut.Database.Entities.WorkOut;
 
 namespace WorkOut.Database.Contexts
 {
@@ -26,6 +27,7 @@ namespace WorkOut.Database.Contexts
         public DbSet<DemographicEntity> DemographicTableAccess { get; set; }
         public DbSet<EducationEntity> EducationTableAccess { get; set; }
         public DbSet<ExperienceEntity> ExperienceTableAccess { get; set; }
+        public DbSet<WorkOutEntity> WorkOutTableAccess { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

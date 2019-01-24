@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WorkOut.Business.DataContract.WorkOut.DTOs
 {
-    public class WorkOutDTO
+    public class WorkOutCreateDTO
     {
+        public int OwnerId { get; set; }
+        public string ExerciseName { get; set; }
     }
 }

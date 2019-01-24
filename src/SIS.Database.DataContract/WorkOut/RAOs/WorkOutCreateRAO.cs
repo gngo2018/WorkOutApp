@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WorkOut.Database.DataContract.WorkOut.RAOs
 {
-    public class WorkOutRAO
+    public class WorkOutCreateRAO
     {
+        public int OwnerId { get; set; }
+        public string ExerciseName { get; set; }
     }
 }
