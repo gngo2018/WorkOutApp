@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WorkOut.Database.DataContract.MealPrep.RAOs
+namespace WorkOut.API.DataContract.MealPrep
 {
-    public class MealPrepRAO
+    public class SetInfoCreateRequest
     {
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WorkOut.API.Controllers.MealPrep
 {
-    public class MealPrepController : Controller
+    public class SetInfoController : Controller
     {
         public IActionResult Index()
         {
