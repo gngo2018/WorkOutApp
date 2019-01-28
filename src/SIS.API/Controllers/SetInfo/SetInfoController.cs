@@ -41,5 +41,20 @@ namespace WorkOut.API.Controllers.MealPrep
 
             throw new Exception();
         }
+
+        //GET All Sets
+        [HttpGet]
+        public async Task<IActionResult> GetAllSetInfo()
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetAllSetInfo();
+            var response = _mapper.Map<IEnumerable<SetInfoListItemResponse>>(dto);
+
+            return Ok(response);
+        }
     }
 }

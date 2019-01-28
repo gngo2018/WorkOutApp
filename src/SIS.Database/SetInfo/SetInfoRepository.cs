@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,14 @@ namespace WorkOut.Database.MealPrep
             return await _ctx.SaveChangesAsync() == 1;
 
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<SetInfoListItemRAO>> GetAllSetInfo()
+        {
+            var query = await _ctx.SetInfoTableAccess.ToArrayAsync();
+            var rao = _mapper.Map<IEnumerable<SetInfoListItemRAO>>(query);
+
+            return rao;
         }
     }
 }

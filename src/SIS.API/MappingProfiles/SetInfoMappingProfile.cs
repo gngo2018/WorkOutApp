@@ -18,6 +18,11 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<SetInfoCreateRequest, SetInfoCreateDTO>();
             CreateMap<SetInfoCreateDTO, SetInfoCreateRAO>();
             CreateMap<SetInfoCreateRAO, SetInfoEntity>();
+
+            //Read Mapping
+            CreateMap<SetInfoEntity, SetInfoListItemRAO>();
+            CreateMap<SetInfoListItemRAO, SetInfoListItemDTO>();
+            CreateMap<SetInfoListItemDTO, SetInfoListItemResponse>();
         }
     }
 }

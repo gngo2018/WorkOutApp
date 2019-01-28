@@ -9,5 +9,6 @@ namespace WorkOut.Business.DataContract.SetInfo.Interfaces
     public interface ISetInfoManager
     {
         Task<bool> CreateSetInfo(SetInfoCreateDTO dto);
+        Task<IEnumerable<SetInfoListItemDTO>> GetAllSetInfo();
     }
 }

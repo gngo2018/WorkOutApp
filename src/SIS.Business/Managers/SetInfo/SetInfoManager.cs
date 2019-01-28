@@ -30,5 +30,13 @@ namespace WorkOut.Business.Managers.SetInfo
 
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<SetInfoListItemDTO>> GetAllSetInfo()
+        {
+            var rao = await _repository.GetAllSetInfo();
+            var dto = _mapper.Map<IEnumerable<SetInfoListItemDTO>>(rao);
+
+            return dto;
+        }
     }
 }

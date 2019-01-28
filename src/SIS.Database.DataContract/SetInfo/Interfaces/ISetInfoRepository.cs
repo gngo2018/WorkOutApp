@@ -9,5 +9,6 @@ namespace WorkOut.Database.DataContract.SetInfo.Interfaces
     public interface ISetInfoRepository
     {
         Task<bool>CreateSetInfo(SetInfoCreateRAO rao);
+        Task<IEnumerable<SetInfoListItemRAO>> GetAllSetInfo();
     }
 }
