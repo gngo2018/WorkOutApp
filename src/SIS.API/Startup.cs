@@ -30,6 +30,10 @@ using WorkOut.Business.Managers.WorkOut;
 using WorkOut.Database.DataContract.WorkOut.Interfaces;
 using WorkOut.Database.WorkOut;
 using WorkOut.API.MappingProfiles;
+using WorkOut.Business.DataContract.SetInfo.Interfaces;
+using WorkOut.Business.Managers.SetInfo;
+using WorkOut.Database.DataContract.SetInfo.Interfaces;
+using WorkOut.Database.MealPrep;
 
 namespace WorkOut.API
 {
@@ -96,6 +100,7 @@ namespace WorkOut.API
             {
                 mc.AddProfile(new MappingProfile());
                 mc.AddProfile(new WorkOutMappingProfile());
+                mc.AddProfile(new SetInfoMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -108,6 +113,8 @@ namespace WorkOut.API
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IWorkOutManager, WorkOutManager>();
             services.AddScoped<IWorkOutRepository, WorkOutRepository>();
+            services.AddScoped<ISetInfoManager, SetInfoManager>();
+            services.AddScoped<ISetInfoRepository, SetInfoRepository>();
 
 
             //======= Swagger =======
