@@ -40,5 +40,13 @@ namespace WorkOut.Database.MealPrep
 
             return rao;
         }
+
+        public async Task<SetInfoListItemRAO> GetSetInfoById(int id)
+        {
+            var query = await _ctx.SetInfoTableAccess.SingleAsync(q => q.SetInfoEntityId == id);
+            var rao = _mapper.Map<SetInfoListItemRAO>(query);
+
+            return rao;
+        }
     }
 }

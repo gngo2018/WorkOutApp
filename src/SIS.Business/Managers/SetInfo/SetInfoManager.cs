@@ -38,5 +38,13 @@ namespace WorkOut.Business.Managers.SetInfo
 
             return dto;
         }
+
+        public async Task<SetInfoListItemDTO> GetSetInfoById(int id)
+        {
+            var rao = await _repository.GetSetInfoById(id);
+            var dto = _mapper.Map<SetInfoListItemDTO>(rao);
+
+            return dto;
+        }
     }
 }

@@ -56,5 +56,20 @@ namespace WorkOut.API.Controllers.MealPrep
 
             return Ok(response);
         }
+
+        //GET Set By Id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSetInfoById(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetSetInfoById(id);
+            var response = _mapper.Map<SetInfoListItemResponse>(dto);
+
+            return Ok(response);
+        }
     }
 }
