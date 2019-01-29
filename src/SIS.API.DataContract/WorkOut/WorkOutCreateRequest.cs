@@ -6,6 +6,6 @@ namespace WorkOut.API.DataContract.WorkOut
 {
     public class WorkOutCreateRequest
     {
-        public string ExerciseName { get; set; }
+        public string WorkOutName { get; set; }
     }
 }

@@ -7,6 +7,6 @@ namespace WorkOut.Business.DataContract.WorkOut.DTOs
     public class WorkOutCreateDTO
     {
         public int OwnerId { get; set; }
-        public string ExerciseName { get; set; }
+        public string WorkOutName { get; set; }
     }
 }

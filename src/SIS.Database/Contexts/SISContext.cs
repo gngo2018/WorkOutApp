@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WorkOut.Database.Entities.Application;
+using WorkOut.Database.Entities.Exercise;
+using WorkOut.Database.Entities.ExerciseTransaction;
 using WorkOut.Database.Entities.People;
 using WorkOut.Database.Entities.Roles;
+using WorkOut.Database.Entities.SetInfo;
 using WorkOut.Database.Entities.WorkOut;
 
 namespace WorkOut.Database.Contexts
@@ -28,6 +31,9 @@ namespace WorkOut.Database.Contexts
         public DbSet<EducationEntity> EducationTableAccess { get; set; }
         public DbSet<ExperienceEntity> ExperienceTableAccess { get; set; }
         public DbSet<WorkOutEntity> WorkOutTableAccess { get; set; }
+        public DbSet<SetInfoEntity> SetInfoTableAccess { get; set; }
+        public DbSet<ExerciseEntity> ExerciseTableAccess { get; set; }
+        public DbSet<ExerciseTransactionEntity> ExerciseTransactionTableAccess { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

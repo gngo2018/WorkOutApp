@@ -10,8 +10,8 @@ using WorkOut.Database.Contexts;
 namespace WorkOut.Database.Migrations
 {
     [DbContext(typeof(SISContext))]
-    [Migration("20190124195807_WorkOutEntity")]
-    partial class WorkOutEntity
+    [Migration("20190129164857_NewDb")]
+    partial class NewDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -161,6 +161,36 @@ namespace WorkOut.Database.Migrations
                     b.ToTable("ExperienceTableAccess");
                 });
 
+            modelBuilder.Entity("WorkOut.Database.Entities.Exercise.ExerciseEntity", b =>
+                {
+                    b.Property<int>("ExerciseEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ExerciseName");
+
+                    b.Property<int>("OwnerId");
+
+                    b.HasKey("ExerciseEntityId");
+
+                    b.ToTable("ExerciseTableAccess");
+                });
+
+            modelBuilder.Entity("WorkOut.Database.Entities.ExerciseTransaction.ExerciseTransactionEntity", b =>
+                {
+                    b.Property<int>("ExerciseTransactionEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ExerciseEntityId");
+
+                    b.Property<int>("SetInfoEntityId");
+
+                    b.HasKey("ExerciseTransactionEntityId");
+
+                    b.ToTable("ExerciseTransactionTableAccess");
+                });
+
             modelBuilder.Entity("WorkOut.Database.Entities.People.UserEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -251,15 +281,34 @@ namespace WorkOut.Database.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("WorkOut.Database.Entities.SetInfo.SetInfoEntity", b =>
+                {
+                    b.Property<int>("SetInfoEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OwnerId");
+
+                    b.Property<int>("Rep");
+
+                    b.Property<string>("Set");
+
+                    b.Property<int>("Weight");
+
+                    b.HasKey("SetInfoEntityId");
+
+                    b.ToTable("SetInfoTableAccess");
+                });
+
             modelBuilder.Entity("WorkOut.Database.Entities.WorkOut.WorkOutEntity", b =>
                 {
                     b.Property<int>("WorkOutEntityId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ExerciseName");
-
                     b.Property<int>("OwnerId");
+
+                    b.Property<string>("WorkOutName");
 
                     b.HasKey("WorkOutEntityId");
 
