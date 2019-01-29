@@ -59,5 +59,13 @@ namespace WorkOut.Database.MealPrep
 
             return await _ctx.SaveChangesAsync() == 1;
         }
+
+        public async Task<bool> DeleteSetInfo(int id)
+        {
+            var query = await _ctx.SetInfoTableAccess.SingleAsync(q => q.SetInfoEntityId == id);
+            _ctx.SetInfoTableAccess.Remove(query);
+
+            return await _ctx.SaveChangesAsync() == 1;
+        }
     }
 }

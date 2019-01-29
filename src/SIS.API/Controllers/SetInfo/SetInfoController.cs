@@ -88,5 +88,20 @@ namespace WorkOut.API.Controllers.MealPrep
 
             throw new Exception();
         }
+
+        //DELETE Set Info Delete
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSetInfo(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            if (await _manager.DeleteSetInfo(id))
+                return StatusCode(207);
+
+            throw new Exception();
+        }
     }
 }

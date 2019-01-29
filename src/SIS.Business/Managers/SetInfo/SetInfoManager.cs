@@ -56,5 +56,13 @@ namespace WorkOut.Business.Managers.SetInfo
 
             throw new NotImplementedException();
         }
+
+        public async Task<bool> DeleteSetInfo(int id)
+        {
+            if (await _repository.DeleteSetInfo(id))
+                return true;
+
+            throw new NotImplementedException();
+        }
     }
 }

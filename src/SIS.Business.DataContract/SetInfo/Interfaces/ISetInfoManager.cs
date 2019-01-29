@@ -12,5 +12,6 @@ namespace WorkOut.Business.DataContract.SetInfo.Interfaces
         Task<IEnumerable<SetInfoListItemDTO>> GetAllSetInfo();
         Task<SetInfoListItemDTO> GetSetInfoById(int id);
         Task<bool> UpdateSetInfo(SetInfoUpdateDTO dto);
+        Task<bool> DeleteSetInfo(int id);
     }
 }
