@@ -11,5 +11,6 @@ namespace WorkOut.Database.DataContract.SetInfo.Interfaces
         Task<bool>CreateSetInfo(SetInfoCreateRAO rao);
         Task<IEnumerable<SetInfoListItemRAO>> GetAllSetInfo();
         Task<SetInfoListItemRAO> GetSetInfoById(int id);
+        Task<bool> UpdateSetInfo(SetInfoUpdateRAO rao);
     }
 }

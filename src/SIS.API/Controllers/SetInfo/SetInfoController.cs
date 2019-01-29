@@ -71,5 +71,22 @@ namespace WorkOut.API.Controllers.MealPrep
 
             return Ok(response);
         }
+
+        //PUT Update Set Info
+        [HttpPut]
+        public async Task<IActionResult> UpdateSetInfo(SetInfoUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = _mapper.Map<SetInfoUpdateDTO>(request);
+
+            if (await _manager.UpdateSetInfo(dto))
+                return StatusCode(202);
+
+            throw new Exception();
+        }
     }
 }

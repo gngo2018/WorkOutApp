@@ -23,6 +23,11 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<SetInfoEntity, SetInfoListItemRAO>();
             CreateMap<SetInfoListItemRAO, SetInfoListItemDTO>();
             CreateMap<SetInfoListItemDTO, SetInfoListItemResponse>();
+
+            //Update Mapping
+            CreateMap<SetInfoUpdateRequest, SetInfoUpdateDTO>();
+            CreateMap<SetInfoUpdateDTO, SetInfoUpdateRAO>();
+            CreateMap<SetInfoUpdateRAO, SetInfoEntity>();
         }
     }
 }

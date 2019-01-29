@@ -46,5 +46,15 @@ namespace WorkOut.Business.Managers.SetInfo
 
             return dto;
         }
+
+        public async Task<bool> UpdateSetInfo(SetInfoUpdateDTO dto)
+        {
+            var rao = _mapper.Map<SetInfoUpdateRAO>(dto);
+
+            if (await _repository.UpdateSetInfo(rao))
+                return true;
+
+            throw new NotImplementedException();
+        }
     }
 }

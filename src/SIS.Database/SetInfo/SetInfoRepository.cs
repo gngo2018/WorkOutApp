@@ -48,5 +48,16 @@ namespace WorkOut.Database.MealPrep
 
             return rao;
         }
+
+        public async Task<bool> UpdateSetInfo(SetInfoUpdateRAO rao)
+        {
+            var entity = await _ctx.SetInfoTableAccess.SingleAsync(e => e.SetInfoEntityId == rao.SetInfoEntityId);
+
+            entity.Set = rao.Set;
+            entity.Rep = rao.Rep;
+            entity.Weight = rao.Weight;
+
+            return await _ctx.SaveChangesAsync() == 1;
+        }
     }
 }
