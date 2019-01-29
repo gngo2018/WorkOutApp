@@ -52,7 +52,7 @@ namespace WorkOut.Database.WorkOut
         public async Task<bool> UpdateWorkOut(WorkOutUpdateRAO rao)
         {
             var entity = await _ctx.WorkOutTableAccess.SingleOrDefaultAsync(e => e.WorkOutEntityId == rao.WorkOutEntityId);
-            entity.ExerciseName = rao.ExerciseName;
+            entity.WorkOutName = rao.WorkOutName;
 
             return await _ctx.SaveChangesAsync() == 1;
         }

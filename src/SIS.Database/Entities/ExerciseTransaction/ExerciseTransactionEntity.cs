@@ -8,6 +8,6 @@ namespace WorkOut.Database.Entities.ExerciseTransaction
     {
         public int ExerciseTransactionEntityId { get; set; }
         public int SetInfoEntityId { get; set; }
-        public int WorkOutEntityId { get; set; }
+        public int ExerciseEntityId { get; set; }
     }
 }

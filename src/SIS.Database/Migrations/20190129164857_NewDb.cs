@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WorkOut.Database.Migrations
 {
-    public partial class NewApp : Migration
+    public partial class NewDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,6 +96,34 @@ namespace WorkOut.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ExerciseTableAccess",
+                columns: table => new
+                {
+                    ExerciseEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ExerciseName = table.Column<string>(nullable: true),
+                    OwnerId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExerciseTableAccess", x => x.ExerciseEntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ExerciseTransactionTableAccess",
+                columns: table => new
+                {
+                    ExerciseTransactionEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    SetInfoEntityId = table.Column<int>(nullable: false),
+                    ExerciseEntityId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExerciseTransactionTableAccess", x => x.ExerciseTransactionEntityId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ExperienceTableAccess",
                 columns: table => new
                 {
@@ -106,6 +134,36 @@ namespace WorkOut.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ExperienceTableAccess", x => x.ApplicationEntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SetInfoTableAccess",
+                columns: table => new
+                {
+                    SetInfoEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Set = table.Column<string>(nullable: true),
+                    OwnerId = table.Column<int>(nullable: false),
+                    Rep = table.Column<int>(nullable: false),
+                    Weight = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SetInfoTableAccess", x => x.SetInfoEntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkOutTableAccess",
+                columns: table => new
+                {
+                    WorkOutEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OwnerId = table.Column<int>(nullable: false),
+                    WorkOutName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkOutTableAccess", x => x.WorkOutEntityId);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,7 +339,19 @@ namespace WorkOut.Database.Migrations
                 name: "EducationTableAccess");
 
             migrationBuilder.DropTable(
+                name: "ExerciseTableAccess");
+
+            migrationBuilder.DropTable(
+                name: "ExerciseTransactionTableAccess");
+
+            migrationBuilder.DropTable(
                 name: "ExperienceTableAccess");
+
+            migrationBuilder.DropTable(
+                name: "SetInfoTableAccess");
+
+            migrationBuilder.DropTable(
+                name: "WorkOutTableAccess");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

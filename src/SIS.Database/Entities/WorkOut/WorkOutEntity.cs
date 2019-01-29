@@ -8,6 +8,6 @@ namespace WorkOut.Database.Entities.WorkOut
     {
         public int WorkOutEntityId { get; set; }
         public int OwnerId { get; set; }
-        public string ExerciseName { get; set; }
+        public string WorkOutName { get; set; }
     }
 }

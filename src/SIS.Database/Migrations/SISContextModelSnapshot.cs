@@ -159,15 +159,30 @@ namespace WorkOut.Database.Migrations
                     b.ToTable("ExperienceTableAccess");
                 });
 
+            modelBuilder.Entity("WorkOut.Database.Entities.Exercise.ExerciseEntity", b =>
+                {
+                    b.Property<int>("ExerciseEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ExerciseName");
+
+                    b.Property<int>("OwnerId");
+
+                    b.HasKey("ExerciseEntityId");
+
+                    b.ToTable("ExerciseTableAccess");
+                });
+
             modelBuilder.Entity("WorkOut.Database.Entities.ExerciseTransaction.ExerciseTransactionEntity", b =>
                 {
                     b.Property<int>("ExerciseTransactionEntityId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("SetInfoEntityId");
+                    b.Property<int>("ExerciseEntityId");
 
-                    b.Property<int>("WorkOutEntityId");
+                    b.Property<int>("SetInfoEntityId");
 
                     b.HasKey("ExerciseTransactionEntityId");
 
@@ -289,9 +304,9 @@ namespace WorkOut.Database.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ExerciseName");
-
                     b.Property<int>("OwnerId");
+
+                    b.Property<string>("WorkOutName");
 
                     b.HasKey("WorkOutEntityId");
 

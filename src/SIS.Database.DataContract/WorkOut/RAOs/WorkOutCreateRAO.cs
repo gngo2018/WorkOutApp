@@ -7,6 +7,6 @@ namespace WorkOut.Database.DataContract.WorkOut.RAOs
     public class WorkOutCreateRAO
     {
         public int OwnerId { get; set; }
-        public string ExerciseName { get; set; }
+        public string WorkOutName { get; set; }
     }
 }
