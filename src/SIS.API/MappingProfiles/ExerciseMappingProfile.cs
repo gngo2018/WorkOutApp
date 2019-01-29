@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WorkOut.API.DataContract.Exercise;
-using WorkOut.Business.DataContract.Exercise;
+using WorkOut.Business.DataContract.Exercise.DTOs;
 using WorkOut.Database.DataContract.Exercise.RAOs;
 using WorkOut.Database.Entities.Exercise;
 
@@ -20,6 +20,9 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<ExerciseCreateRAO, ExerciseEntity>();
 
             //Read Exercise Mapping
+            CreateMap<ExerciseEntity, ExerciseListItemRAO>();
+            CreateMap<ExerciseListItemRAO, ExerciseListItemDTO>();
+            CreateMap<ExerciseListItemDTO, ExerciseListItemResponse>();
         }
 
     }

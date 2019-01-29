@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using WorkOut.API.DataContract.Exercise;
 using WorkOut.Business.DataContract.Exercise;
+using WorkOut.Business.DataContract.Exercise.DTOs;
 
 namespace WorkOut.API.Controllers.Exercise
 {
@@ -23,7 +24,7 @@ namespace WorkOut.API.Controllers.Exercise
             _manager = manager;
         }
 
-        //Create Set
+        //Create Exercise
         [HttpPost]
         public async Task<IActionResult> PostExercise(ExerciseCreateRequest request)
         {
@@ -40,5 +41,36 @@ namespace WorkOut.API.Controllers.Exercise
 
             throw new Exception();
         }
+
+        //Get All Exercises
+        [HttpGet]
+        public async Task<IActionResult> GetExercises()
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetExercises();
+            var response = _mapper.Map<IEnumerable<ExerciseListItemResponse>>(dto);
+
+            return Ok(response);
+        }
+
+        //Get Exercise By Id
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetExerciseById(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetExerciseById(id);
+            var response = _mapper.Map<ExerciseListItemResponse>(dto);
+
+            return Ok(response);
+        }
+
     }
 }

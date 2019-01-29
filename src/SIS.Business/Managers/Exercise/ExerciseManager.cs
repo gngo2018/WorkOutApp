@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using WorkOut.Business.DataContract.Exercise;
+using WorkOut.Business.DataContract.Exercise.DTOs;
 using WorkOut.Database.DataContract.Exercise;
 using WorkOut.Database.DataContract.Exercise.RAOs;
 
@@ -27,6 +28,22 @@ namespace WorkOut.Business.Managers.Exercise
                 return true;
 
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<ExerciseListItemDTO>> GetExercises()
+        {
+            var rao = await _repository.GetExercises();
+            var dto = _mapper.Map<IEnumerable<ExerciseListItemDTO>>(rao);
+
+            return dto;
+        }
+
+        public async Task<ExerciseListItemDTO> GetExerciseById(int id)
+        {
+            var rao = await _repository.GetExerciseById(id);
+            var dto = _mapper.Map<ExerciseListItemDTO>(rao);
+
+            return dto;
         }
     }
 }

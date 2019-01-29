@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +32,22 @@ namespace WorkOut.Database.Exercise
 
             throw new NotImplementedException();
 
+        }
+
+        public async Task<IEnumerable<ExerciseListItemRAO>> GetExercises()
+        {
+            var query = await _ctx.ExerciseTableAccess.ToArrayAsync();
+            var rao = _mapper.Map<IEnumerable<ExerciseListItemRAO>>(query);
+
+            return rao;
+        }
+
+        public async Task<ExerciseListItemRAO> GetExerciseById(int id)
+        {
+            var query = await _ctx.ExerciseTableAccess.SingleAsync(q => q.ExerciseEntityId == id);
+            var rao = _mapper.Map<ExerciseListItemRAO>(query);
+
+            return rao;
         }
     }
 }

@@ -9,5 +9,7 @@ namespace WorkOut.Database.DataContract.Exercise
     public interface IExerciseRepository
     {
         Task<bool> CreateExercise(ExerciseCreateRAO rao);
+        Task<IEnumerable<ExerciseListItemRAO>> GetExercises();
+        Task<ExerciseListItemRAO> GetExerciseById(int id);
     }
 }
