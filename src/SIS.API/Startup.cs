@@ -106,6 +106,7 @@ namespace WorkOut.API
                 mc.AddProfile(new WorkOutMappingProfile());
                 mc.AddProfile(new SetInfoMappingProfile());
                 mc.AddProfile(new ExerciseMappingProfile());
+                mc.AddProfile(new ExerciseTransactionMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -122,7 +123,8 @@ namespace WorkOut.API
             services.AddScoped<ISetInfoRepository, SetInfoRepository>();
             services.AddScoped<IExerciseManager, ExerciseManager>();
             services.AddScoped<IExerciseRepository, ExerciseRepository>();
-
+            //services.AddScoped<IExerciseTransactionManager, ExerciseTransactionManager>();
+            //services.AddScoped<IExerciseTransactionRepository, ExerciseTransactionRepository>();
 
             //======= Swagger =======
             services.AddSwaggerGen(c =>
