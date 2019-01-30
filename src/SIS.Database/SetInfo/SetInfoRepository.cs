@@ -9,7 +9,7 @@ using WorkOut.Database.DataContract.SetInfo.Interfaces;
 using WorkOut.Database.DataContract.SetInfo.RAOs;
 using WorkOut.Database.Entities.SetInfo;
 
-namespace WorkOut.Database.MealPrep
+namespace WorkOut.Database.SetInfo
 {
     public class SetInfoRepository : ISetInfoRepository
     {
