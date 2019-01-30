@@ -49,5 +49,15 @@ namespace WorkOut.Database.Exercise
 
             return rao;
         }
+
+        public async Task<bool> UpdateExercise(ExerciseUpdateRAO rao)
+        {
+            var entity = await _ctx.ExerciseTableAccess.SingleAsync(e => e.ExerciseEntityId == rao.ExerciseEntityId);
+            entity.ExerciseName = rao.ExerciseName;
+
+            return await _ctx.SaveChangesAsync() == 1;
+
+            throw new NotImplementedException();
+        }
     }
 }

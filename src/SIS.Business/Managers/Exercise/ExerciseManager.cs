@@ -45,5 +45,14 @@ namespace WorkOut.Business.Managers.Exercise
 
             return dto;
         }
+
+        public async Task<bool> UpdateExercise(ExerciseUpdateDTO dto)
+        {
+            var rao = _mapper.Map<ExerciseUpdateRAO>(dto);
+            if (await _repository.UpdateExercise(rao))
+                return true;
+
+            throw new NotImplementedException();
+        }
     }
 }

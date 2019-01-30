@@ -72,5 +72,21 @@ namespace WorkOut.API.Controllers.Exercise
             return Ok(response);
         }
 
+        //PUT Update Exercise
+        [HttpPut]
+        public async Task<IActionResult> UpdateExercise(ExerciseUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = _mapper.Map<ExerciseUpdateDTO>(request);
+            if (await _manager.UpdateExercise(dto))
+                return StatusCode(202);
+
+            throw new Exception();
+
+        }
     }
 }
