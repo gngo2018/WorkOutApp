@@ -54,5 +54,12 @@ namespace WorkOut.Business.Managers.Exercise
 
             throw new NotImplementedException();
         }
+
+        public async Task<bool> DeleteExercise(int id)
+        {
+            if (await _repository.DeleteExercise(id))
+                return true;
+            throw new NotImplementedException();
+        }
     }
 }

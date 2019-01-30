@@ -86,7 +86,21 @@ namespace WorkOut.API.Controllers.Exercise
                 return StatusCode(202);
 
             throw new Exception();
+        }
 
+        //DELETE Delete Exercise
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteExercise(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            if (await _manager.DeleteExercise(id))
+                return StatusCode(207);
+
+            throw new Exception();
         }
     }
 }

@@ -12,5 +12,6 @@ namespace WorkOut.Database.DataContract.Exercise
         Task<IEnumerable<ExerciseListItemRAO>> GetExercises();
         Task<ExerciseListItemRAO> GetExerciseById(int id);
         Task<bool> UpdateExercise(ExerciseUpdateRAO rao);
+        Task<bool> DeleteExercise(int id);
     }
 }

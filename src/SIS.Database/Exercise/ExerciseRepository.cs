@@ -59,5 +59,13 @@ namespace WorkOut.Database.Exercise
 
             throw new NotImplementedException();
         }
+
+        public async Task<bool> DeleteExercise(int id)
+        {
+            var query = await _ctx.ExerciseTableAccess.SingleAsync(q => q.ExerciseEntityId == id);
+            _ctx.ExerciseTableAccess.Remove(query);
+
+            return await _ctx.SaveChangesAsync() == 1;
+        }
     }
 }
