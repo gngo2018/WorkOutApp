@@ -20,6 +20,11 @@ namespace WorkOut.API.MappingProfiles
             CreateMap<ExerciseTransactionCreateRAO, ExerciseTransactionEntity>();
 
             //Read Mapping
+            CreateMap<ExerciseTransactionEntity, ExerciseTransactionListItemRAO>();
+            CreateMap<ExerciseTransactionListItemRAO, ExerciseTransactionListItemDTO>();
+            CreateMap<ExerciseTransactionListItemDTO, ExerciseTransactionListItemResponse>();
+
+            //Update Mapping
         }
 
     }

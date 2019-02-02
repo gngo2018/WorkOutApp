@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,6 +31,14 @@ namespace WorkOut.Database.ExerciseTransaction
             return await _ctx.SaveChangesAsync() == 1;
 
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<ExerciseTransactionListItemRAO>> GetExerciseTransactions()
+        {
+            var query = await _ctx.ExerciseTransactionTableAccess.ToArrayAsync();
+            var rao = _mapper.Map<IEnumerable<ExerciseTransactionListItemRAO>>(query);
+
+            return rao;
         }
     }
 }

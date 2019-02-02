@@ -29,5 +29,13 @@ namespace WorkOut.Business.Managers.ExerciseTransaction
 
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<ExerciseTransactionListItemDTO>> GetExerciseTransactions()
+        {
+            var rao = await _repository.GetExerciseTransactions();
+            var dto = _mapper.Map<IEnumerable<ExerciseTransactionListItemDTO>>(rao);
+
+            return dto;
+        }
     }
 }

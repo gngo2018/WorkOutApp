@@ -41,5 +41,20 @@ namespace WorkOut.API.Controllers.ExerciseTransaction
 
             throw new Exception();
         }
+
+        //Get All Exercise Transacitons
+        [HttpGet]
+        public async Task<IActionResult> GetExerciseTransactions()
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetExerciseTransactions();
+            var response = _mapper.Map<IEnumerable<ExerciseTransactionListItemResponse>>(dto);
+
+            return Ok(response);
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace WorkOut.Business.DataContract.ExerciseTransaction
     public interface IExerciseTransactionManager
     {
         Task<bool> CreateExerciseTransaction(ExerciseTransactionCreateDTO dto);
+        Task<IEnumerable<ExerciseTransactionListItemDTO>> GetExerciseTransactions();
     }
 }
