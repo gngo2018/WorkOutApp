@@ -38,6 +38,10 @@ using WorkOut.Business.DataContract.Exercise;
 using WorkOut.Business.Managers.Exercise;
 using WorkOut.Database.DataContract.Exercise;
 using WorkOut.Database.Exercise;
+using WorkOut.Business.DataContract.ExerciseTransaction;
+using WorkOut.Business.Managers.ExerciseTransaction;
+using WorkOut.Database.DataContract.ExerciseTransaction;
+using WorkOut.Database.ExerciseTransaction;
 
 namespace WorkOut.API
 {
@@ -123,8 +127,8 @@ namespace WorkOut.API
             services.AddScoped<ISetInfoRepository, SetInfoRepository>();
             services.AddScoped<IExerciseManager, ExerciseManager>();
             services.AddScoped<IExerciseRepository, ExerciseRepository>();
-            //services.AddScoped<IExerciseTransactionManager, ExerciseTransactionManager>();
-            //services.AddScoped<IExerciseTransactionRepository, ExerciseTransactionRepository>();
+            services.AddScoped<IExerciseTransactionManager, ExerciseTransactionManager>();
+            services.AddScoped<IExerciseTransactionRepository, ExerciseTransactionRepository>();
 
             //======= Swagger =======
             services.AddSwaggerGen(c =>
