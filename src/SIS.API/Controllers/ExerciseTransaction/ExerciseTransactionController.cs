@@ -56,5 +56,8 @@ namespace WorkOut.API.Controllers.ExerciseTransaction
 
             return Ok(response);
         }
+
+        //Get Sets by Exercise Entity Id 
+        //TODO: Look at RBB Playlist Collection for ref
     }
 }
